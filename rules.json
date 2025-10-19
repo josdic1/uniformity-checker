@@ -1,0 +1,68 @@
+{
+  "project_name": "Uniformity Checker",
+  "frontend": {
+    "structure": {
+      "required_folders": [
+        "src/utils",
+        "src/services",
+        "src/components/common",
+        "src/components/layout",
+        "src/components/features",
+        "src/contexts",
+        "src/hooks",
+        "src/pages",
+        "src/providers"
+      ],
+      "required_files": [
+        "src/services/api.js",
+        "src/App.jsx",
+        "src/main.jsx"
+      ]
+    },
+    "patterns": {
+      "api_service": {
+        "file": "src/services/api.js",
+        "must_include": [
+          "axios.create",
+          "export const get",
+          "baseURL"
+        ],
+        "cannot_include": [
+          "fetch("
+        ]
+      },
+      "providers": {
+        "pattern": "src/providers/*Provider.jsx",
+        "must_include": [
+          "*Context",
+          "Provider",
+          "useMemo",
+          "useEffect",
+          "useState"
+        ]
+      },
+      "components": {
+        "naming": "PascalCase",
+        "must_have": "export default"
+      }
+    }
+  },
+  "backend": {
+    "structure": {
+      "required_folders": [
+        "app"
+      ],
+      "required_files": [
+        "app/__init__.py",
+        "app/models.py",
+        "app/schemas.py",
+        "app/routes.py",
+        "app/extensions.py",
+        "app/commands.py",
+        "run.py",
+        "config.py",
+        "__init__.py"
+      ]
+    }
+  }
+}
